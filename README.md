@@ -1,2 +1,2 @@
 # Cerberus-Kiddie
-simple firewall that can be used in a rasberry pi or any linux server for protect your home for unwated ads or websites
+simple firewall that can be used in a raspberry pi or any linux server for protect your home for unwanted ads on websites
