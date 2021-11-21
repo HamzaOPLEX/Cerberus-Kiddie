@@ -1,0 +1,10 @@
+flags = {
+    'F': 'FIN',
+    'S': 'SYN',
+    'R': 'RST',
+    'P': 'PSH',
+    'A': 'ACK',
+    'U': 'URG',
+    'E': 'ECE',
+    'C': 'CWR',
+}

